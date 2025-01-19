@@ -28,3 +28,12 @@ int main() {
     return 0;
 }
 ```
+output
+22
+garbage 
+garbage 
+garbage
+22
+22
+22
+
