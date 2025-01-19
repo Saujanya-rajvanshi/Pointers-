@@ -130,3 +130,60 @@ After function call: num = 20
 ### Key Point:
 - The value of `num` in the `main()` function is changed after the function call, demonstrating **call by reference**.
 
+### Code Example 1: Passing Address by Value
+
+```c
+#include<stdio.h>
+
+void printAddress(int n);
+
+int main() {
+    int n = 4;
+    printAddress(n);
+    printf("address of n in main is %p\n", (void*)&n);
+    return 0;
+}
+
+void printAddress(int n) {
+    printf("address of n in printAddress is %p\n", (void*)&n);
+}
+```
+
+#### Output:
+The memory addresses will be different because `n` is passed by value, and the function uses a new copy of the variable:
+```
+address of n in printAddress is 0x7ffeefbff58c
+address of n in main is 0x7ffeefbff58e
+```
+
+---
+
+### Code Example 2: Passing Address by Reference (Using Pointers)
+
+```c
+#include<stdio.h>
+
+void printAddress(int *n);
+
+int main() {
+    int n = 4;
+    printAddress(&n);
+    printf("address of n in main is %p\n", (void*)&n);
+    return 0;
+}
+
+void printAddress(int *n) {
+    printf("address of n in printAddress is %p\n", (void*)n);
+}
+```
+
+#### Output:
+The memory addresses will be the same because the function receives the actual address of the variable:
+```
+address of n in printAddress is 0x7ffeefbff58c
+address of n in main is 0x7ffeefbff58c
+```
+
+### Key Difference:
+- In **Code Example 1**, the variable is passed by value, so a copy is created, and the addresses differ.
+- In **Code Example 2**, the address is passed directly, so both functions refer to the same memory location.
