@@ -38,6 +38,8 @@ garbage
 22
 Here is an example of a simple **call by value** program in C:
 
+---
+
 ### Code:
 ```c
 #include <stdio.h>
