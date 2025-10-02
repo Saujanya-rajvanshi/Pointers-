@@ -2,7 +2,7 @@
 Pointers 
 
 Here’s your code:
-
+ ---
 ```c
 #include<stdio.h>
 
